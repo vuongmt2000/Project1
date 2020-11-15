@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.addProduct"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm sản phẩm"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"
+        android:textColor="#05e62a"/>
+    <EditText
+        android:inputType="text"
+        android:id="@+id/nhaptensp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:hint="Nhập tên Sản Phẩm"/>
+
+    <EditText
+        android:id="@+id/nhapgiasp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:inputType="number"
+        android:layout_marginTop="30dp"
+        android:hint="Nhập giá Sản Phẩm"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="129dp">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="222dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_image_24" />
+
+        <Button
+            android:id="@+id/choose_image"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:text="chọn ảnh sản phẩm" />
+    </LinearLayout>
+    <EditText
+        android:inputType="text"
+        android:id="@+id/nhapgioithieusp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:hint="Lời giới thiệu về sản phẩm"/>
+<!--    <EditText-->
+<!--        android:id="@+id/idsanpham"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:inputType="number"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:hint="Điện thoại nhập 1,LapTop nhập 2"/>-->
+
+    <ToggleButton
+        android:id="@+id/chonloaiSP"
+        android:checked="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="LapTop"
+        android:textOn="Điện Thoại" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+    <Button
+        android:id="@+id/themsp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm"
+        android:background="#57aec2"/>
+        <Button
+            android:id="@+id/khongthemsp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:layout_marginLeft="30dp"
+            android:background="#fa002e"/>
+    </LinearLayout>
+</LinearLayout>
