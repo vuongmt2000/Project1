@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.Chitietsanpham"></activity>
+        <activity android:name=".activity.GioHang"></activity>
+        <activity android:name=".activity.Chitietsanpham" />
         <activity android:name=".activity.addProduct" />
         <activity android:name=".activity.LapTopActivity" />
         <activity android:name=".activity.DienThoaiActivity" />

@@ -75,6 +75,7 @@ public class DienThoaiActivity extends AppCompatActivity {
 
     }
 
+    //tim kiem dien thoai
     private void searchdienthoai() {
         timkiemdt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -93,7 +94,7 @@ public class DienThoaiActivity extends AppCompatActivity {
             }
         });
     }
-
+    // ham tim kiem dien thoai thong qua ten dien thoai
     private void filter(String text) {
         ArrayList<Product> arrSearch = new ArrayList<>();
         for(Product item : mangdt){
@@ -104,6 +105,7 @@ public class DienThoaiActivity extends AppCompatActivity {
         dienthoaiAdapter.filterList(arrSearch);
     }
 
+    //load them du lieu
     private void LoadMoreData() {
         listViewDt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -129,7 +131,7 @@ public class DienThoaiActivity extends AppCompatActivity {
             }
         });
     }
-
+    // lay du lieu tu sever tra ve
     private void getDAta(int Page) {
         Log.d("1234","456");
         RequestQueue requestQueue  = Volley.newRequestQueue(getApplicationContext());
@@ -188,7 +190,7 @@ public class DienThoaiActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-
+    // them nut back trn toolbar
     private void ActionToolbar() {
         setSupportActionBar(tbdt);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -200,7 +202,7 @@ public class DienThoaiActivity extends AppCompatActivity {
        });
 
     }
-
+    // lay id dien thoai tu man hinh mainAtivity chuyen qua
     private void GetIdDt() {
         iddt = getIntent().getIntExtra("IDloaisanpham",-1);
         Log.d("giatriLoaiSP",iddt+"");
@@ -217,6 +219,8 @@ public class DienThoaiActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         footterview = inflater.inflate(R.layout.progressbar,null);
     }
+
+    // cham vao de load du lieu
     public class mHandler extends Handler{
         @Override
         public void handleMessage(Message msg) {
@@ -232,6 +236,7 @@ public class DienThoaiActivity extends AppCompatActivity {
             super.handleMessage(msg);
         }
     }
+    // toa luong chay ngam
     public class TheardData extends Thread{
         @Override
         public void run() {

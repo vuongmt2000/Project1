@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.adapter.LoaispAdapter;
 import com.example.cuahangfood.adapter.SanphamAdapter;
+import com.example.cuahangfood.model.GioHangSP;
 import com.example.cuahangfood.model.Product;
 import com.example.cuahangfood.model.Product_Type;
 import com.example.cuahangfood.ultil.CheckConnection;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     int id = 0;
     String product_type ="";
     String image_Product_Type = "";
-
+    public static  ArrayList<GioHangSP> manggiohang;
 
 
     @Override
@@ -262,6 +263,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewmanhinhchinh.setHasFixedSize(true);
         recyclerViewmanhinhchinh.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         recyclerViewmanhinhchinh.setAdapter(sanphamAdapter);
+        if(manggiohang != null){
+
+        }else{
+            manggiohang = new ArrayList<>();
+        }
     }
 
 }

@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.cuahangfood.R;
+import com.example.cuahangfood.model.GioHangSP;
 import com.example.cuahangfood.model.Product;
 import com.squareup.picasso.Picasso;
 
@@ -26,6 +27,12 @@ public class Chitietsanpham extends AppCompatActivity {
     TextView tenSPchitiet, giaSPchitiet, Motosanphamchitiet;
     Button buttonthemvaogio;
     Spinner spchitiet;
+    int id = 0;
+    String tenSP = "";
+    int giaSP = 0;
+    String anhSP = "";
+    String MotoSP = "";
+    int idLoaisp = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,38 @@ public class Chitietsanpham extends AppCompatActivity {
         Actiontoolbar();
         getDATAFromDienthoai();
         CatchEvenSpinner();
+        EventAddCart();
+    }
+
+    private void EventAddCart() {
+        buttonthemvaogio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(MainActivity.manggiohang.size() >0){
+                    boolean exists = false;
+                    int sl = Integer.parseInt(spchitiet.getSelectedItem().toString());
+                    for(int i = 0; i< MainActivity.manggiohang.size(); i++){
+                        if(MainActivity.manggiohang.get(i).getIdsp() == id ) {
+                            MainActivity.manggiohang.get(i).setSoluongSP(MainActivity.manggiohang.get(i).getSoluongSP() + sl);
+                            MainActivity.manggiohang.get(i).setGiasP(giaSP * MainActivity.manggiohang.get(i).getSoluongSP());
+                            exists = true;
+                        }
+
+                    }
+                    if(exists == false){
+                        int soluong = Integer.parseInt(spchitiet.getSelectedItem().toString());
+                        long Giamoi = giaSP*soluong;
+                        MainActivity.manggiohang.add( new GioHangSP(id,tenSP,Giamoi,anhSP,soluong));
+                    }
+                }else {
+                    int soluong = Integer.parseInt(spchitiet.getSelectedItem().toString());
+                    long Giamoi = giaSP*soluong;
+                    MainActivity.manggiohang.add( new GioHangSP(id,tenSP,Giamoi,anhSP,soluong));
+                }
+                Intent intent = new Intent(getApplicationContext(),GioHang.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void CatchEvenSpinner() {
@@ -55,12 +94,6 @@ public class Chitietsanpham extends AppCompatActivity {
     }
 
     private void getDATAFromDienthoai() {
-        int id = 0;
-        String tenSP = "";
-        int giaSP = 0;
-        String anhSP = "";
-        String MotoSP = "";
-        int idLoaisp = 0;
         Product product= (Product) getIntent().getSerializableExtra("thongtinsanpham");
         id = product.getID();
         tenSP = product.getTensanpham();
