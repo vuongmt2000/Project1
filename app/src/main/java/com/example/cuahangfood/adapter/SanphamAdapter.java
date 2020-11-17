@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.activity.Chitietsanpham;
+import com.example.cuahangfood.activity.MainActivity;
 import com.example.cuahangfood.model.Product;
 import com.squareup.picasso.Picasso;
 
@@ -67,10 +68,12 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ItemHold
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(context, Chitietsanpham.class);
-                        intent.putExtra("thongtinsanpham",arraySanpham.get(getPosition()));
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent);
+                        if(MainActivity.status==1){
+                            Intent intent = new Intent(context, Chitietsanpham.class);
+                            intent.putExtra("thongtinsanpham",arraySanpham.get(getPosition()));
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
+                        }
                     }
                 });
         }

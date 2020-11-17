@@ -2,15 +2,21 @@ package com.example.cuahangfood.activity;
 
 
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -47,7 +53,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static final String STATUS="status";
+    public static final String STATUS= "status";
+    public static int status;
     Toolbar toolbar;
     ViewFlipper viewFlipper;
     RecyclerView recyclerViewmanhinhchinh;
@@ -83,7 +90,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if(MainActivity.status == 1){
+            getMenuInflater().inflate(R.menu.menu,menu);
+            return true;
+        }else{
+            getMenuInflater().inflate(R.menu.order,menu);
+            return false;
+        }
 
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menugiohanag:
+                if(MainActivity.status ==1){
+                    Intent intent = new Intent(getApplicationContext(),GioHang.class);
+                    startActivity(intent);
+                }
+            case R.id.dondathang:
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void CatchOnItemListView() {
         listViewmanhinhchinh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,7 +135,9 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         if(CheckConnection.haveNetworkConnection(getApplicationContext())){
                             Intent intent = new Intent(MainActivity.this, DienThoaiActivity.class);
+                            int status = intent.getIntExtra(Login.STATUS,0);
                             intent.putExtra("IDloaisanpham",mangloaisp.get(i).getId());
+
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
@@ -196,10 +229,9 @@ public class MainActivity extends AppCompatActivity {
                     mangloaisp.add(3, new Product_Type(0,"Liên hệ","https://cdn.pixabay.com/photo/2016/11/01/03/05/contact-1787332_960_720.png"));
                     mangloaisp.add(4,new Product_Type(0,"Thông tin" , "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSUwxF7tSeL3mVdFZYJAXWXBF4yrd5EOTfuHA&usqp=CAU"));
                     Intent intent = getIntent();
-                    int status = intent.getIntExtra(Login.STATUS,0);
-                    int status1 = intent.getIntExtra(MainActivity.STATUS,0);
-                    Log.d("dangnhapadim","status1.toString()");
-                    if(status == 2 || status1 == 2) {
+                    int status1 = intent.getIntExtra(Login.STATUS,0);
+                    status = status1;
+                    if(MainActivity.status ==2) {
                         mangloaisp.add(5, new Product_Type(0, "Thêm sản phẩm mới", "https://kenh14cdn.com/A3YmnWqkHeph7OwGyu6TwbX57tgTw/Image/2012/03/120320kpbieutuong06_8f682.jpg"));
                     }
                 }
@@ -243,6 +275,7 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
     }
 
 

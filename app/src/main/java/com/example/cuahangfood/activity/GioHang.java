@@ -47,7 +47,7 @@ public class GioHang extends AppCompatActivity {
             tongtien += MainActivity.manggiohang.get(i).getGiasP();
         }
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        textViewtongtien.setText("Giá : "+decimalFormat.format(tongtien)+" Đ");
+        textViewtongtien.setText(decimalFormat.format(tongtien)+" Đ");
     }
 
 

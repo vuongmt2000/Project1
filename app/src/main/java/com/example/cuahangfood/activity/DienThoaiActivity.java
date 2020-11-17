@@ -9,6 +9,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -18,6 +20,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,7 +77,29 @@ public class DienThoaiActivity extends AppCompatActivity {
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if(MainActivity.status == 1){
+            getMenuInflater().inflate(R.menu.menu,menu);
+        }else{
+            getMenuInflater().inflate(R.menu.order,menu);
+        }
 
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menugiohanag:
+                if(MainActivity.status ==1){
+                    Intent intent = new Intent(getApplicationContext(),GioHang.class);
+                    startActivity(intent);
+                }
+            case R.id.dondathang:
+        }
+        return super.onOptionsItemSelected(item);
+    }
     //tim kiem dien thoai
     private void searchdienthoai() {
         timkiemdt.addTextChangedListener(new TextWatcher() {
@@ -110,9 +135,11 @@ public class DienThoaiActivity extends AppCompatActivity {
         listViewDt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(),Chitietsanpham.class);
-                intent.putExtra("thongtinsanpham",mangdt.get(i));
-                startActivity(intent);
+                if(MainActivity.status == 1){
+                    Intent intent = new Intent(getApplicationContext(),Chitietsanpham.class);
+                    intent.putExtra("thongtinsanpham",mangdt.get(i));
+                    startActivity(intent);
+                }
             }
         });
         listViewDt.setOnScrollListener(new AbsListView.OnScrollListener() {

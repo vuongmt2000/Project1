@@ -1,10 +1,13 @@
 package com.example.cuahangfood.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -44,7 +47,21 @@ public class Chitietsanpham extends AppCompatActivity {
         CatchEvenSpinner();
         EventAddCart();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menugiohanag:
+                Intent intent = new Intent(getApplicationContext(),GioHang.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void EventAddCart() {
         buttonthemvaogio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +101,7 @@ public class Chitietsanpham extends AppCompatActivity {
 
     private void Actiontoolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="#4287f5"
         app:title="Chi tiết Sản Phẩm"
         android:gravity="center"
        app:titleTextColor="#3f55fc"
