@@ -75,8 +75,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Anhxa();
+        Intent intent =getIntent();
+        status = intent.getIntExtra("status",0);
+        Log.d("1212",status+"");
         if(CheckConnection.haveNetworkConnection(getApplicationContext())){
+            Anhxa();
             ActionBar();
             ActionViewFlipper();
             GetDuLieuLoaiSP();
@@ -92,15 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if(MainActivity.status == 1){
-            getMenuInflater().inflate(R.menu.menu,menu);
+            getMenuInflater().inflate(R.menu.menu, menu);
             return true;
-        }else{
-            getMenuInflater().inflate(R.menu.order,menu);
-            return false;
-        }
-
-
     }
 
     @Override
@@ -111,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),GioHang.class);
                     startActivity(intent);
                 }
-            case R.id.dondathang:
+            //case R.id.dondathang:
         }
         return super.onOptionsItemSelected(item);
     }
@@ -135,9 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         if(CheckConnection.haveNetworkConnection(getApplicationContext())){
                             Intent intent = new Intent(MainActivity.this, DienThoaiActivity.class);
-                            int status = intent.getIntExtra(Login.STATUS,0);
                             intent.putExtra("IDloaisanpham",mangloaisp.get(i).getId());
-
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
@@ -228,9 +222,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     mangloaisp.add(3, new Product_Type(0,"Liên hệ","https://cdn.pixabay.com/photo/2016/11/01/03/05/contact-1787332_960_720.png"));
                     mangloaisp.add(4,new Product_Type(0,"Thông tin" , "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSUwxF7tSeL3mVdFZYJAXWXBF4yrd5EOTfuHA&usqp=CAU"));
-                    Intent intent = getIntent();
-                    int status1 = intent.getIntExtra(Login.STATUS,0);
-                    status = status1;
+
                     if(MainActivity.status ==2) {
                         mangloaisp.add(5, new Product_Type(0, "Thêm sản phẩm mới", "https://kenh14cdn.com/A3YmnWqkHeph7OwGyu6TwbX57tgTw/Image/2012/03/120320kpbieutuong06_8f682.jpg"));
                     }

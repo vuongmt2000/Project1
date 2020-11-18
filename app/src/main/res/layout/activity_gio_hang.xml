@@ -47,16 +47,17 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
-            android:layout_marginLeft="20dp"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:textColor="#f5000c"
-            android:text="Tổng Tiền : "
             android:id="@+id/textviewgiathanhtien"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:text="Tổng Tiền : "
+            android:textColor="#f5000c"
+            android:textSize="25dp"
+            android:textStyle="bold" />
         <TextView
             android:layout_marginRight="20dp"
             android:gravity="right"

@@ -15,6 +15,7 @@ import android.widget.Toolbar;
 
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.activity.GioHang;
+import com.example.cuahangfood.activity.MainActivity;
 import com.example.cuahangfood.model.GioHangSP;
 import com.squareup.picasso.Picasso;
 
@@ -54,7 +55,7 @@ public class GioHangAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewCart viewCart = null;
         if( view == null){
             viewCart = new ViewCart();
@@ -76,12 +77,39 @@ public class GioHangAdapter extends BaseAdapter {
         viewCart.txtTensp.setMaxLines(2);
         viewCart.txtTensp.setEllipsize(TextUtils.TruncateAt.END);
         viewCart.txtTensp.setText(gioHang.getTensp());
-        long gia = gioHang.getGiasP()/gioHang.getSoluongSP();
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        viewCart.txtGiasp.setText("Giá : "+decimalFormat.format(gia)+" Đ");
+        viewCart.txtGiasp.setText(decimalFormat.format(gioHang.getGiasP())+" Đ");
         viewCart.buttonsoluong.setText(valueOf(gioHang.getSoluongSP()));
         Picasso.get().load(gioHang.getHinhanhSP()).placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_banner_foreground).into(viewCart.anhsp);
+        int soluong = Integer.parseInt(viewCart.buttonsoluong.getText().toString());
+        if(soluong >= 99){
+            viewCart.buttoncong.setVisibility(View.INVISIBLE);
+            viewCart.buttontru.setVisibility(View.VISIBLE);
+        }else if (soluong <=1){
+            viewCart.buttoncong.setVisibility(View.VISIBLE);
+            viewCart.buttontru.setVisibility(View.INVISIBLE);
+        }else {
+            viewCart.buttoncong.setVisibility(View.VISIBLE);
+            viewCart.buttontru.setVisibility(View.VISIBLE);
+        }
+        final ViewCart finalViewCart = viewCart;
+        viewCart.buttoncong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("helloword","123");
+                int slmoinhat = Integer.parseInt(finalViewCart.buttonsoluong.getText().toString())+1;
+                int slhientai = MainActivity.manggiohang.get(i).getSoluongSP();
+                long giahientai = MainActivity.manggiohang.get(i).getGiasP();
+                MainActivity.manggiohang.get(i).setSoluongSP(slmoinhat);
+                long giamoinhat = (giahientai*slmoinhat)/slhientai;
+                MainActivity.manggiohang.get(i).setGiasP(giamoinhat);
+                DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+                finalViewCart.txtGiasp.setText(decimalFormat.format(giamoinhat)+" Đ");
+                GioHang.tongtien();
+
+            }
+        });
         return view;
     }
 }

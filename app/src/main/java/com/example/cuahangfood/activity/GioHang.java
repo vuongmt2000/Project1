@@ -22,7 +22,7 @@ public class GioHang extends AppCompatActivity {
     GioHangAdapter gioHangAdapter;
     Toolbar toolbar;
     ListView listViewgiohang;
-    TextView textViewtongtien;
+    static TextView textViewtongtien;
     Button buttonthanhtoan,buttonmuatiep;
     ArrayList<GioHangSP> giohang;
 
@@ -35,13 +35,14 @@ public class GioHang extends AppCompatActivity {
         buttonmuatiep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+               Intent intent = new Intent(GioHang.this,MainActivity.class);
+               intent.putExtra("status",MainActivity.status);
                startActivity(intent);
             }
         });
     }
 
-    private void tongtien() {
+    public static void tongtien() {
         long tongtien = 0;
         for(int i= 0; i < MainActivity.manggiohang.size() ; i++){
             tongtien += MainActivity.manggiohang.get(i).getGiasP();

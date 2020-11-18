@@ -135,6 +135,7 @@ public class DienThoaiActivity extends AppCompatActivity {
         listViewDt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d("quyentruycap",MainActivity.status+"");
                 if(MainActivity.status == 1){
                     Intent intent = new Intent(getApplicationContext(),Chitietsanpham.class);
                     intent.putExtra("thongtinsanpham",mangdt.get(i));

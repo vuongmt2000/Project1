@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.model.ArrayLogin;
+import com.example.cuahangfood.ultil.CheckConnection;
 import com.example.cuahangfood.ultil.Server;
 
 import org.json.JSONArray;
@@ -53,14 +54,19 @@ public class Login extends AppCompatActivity {
                             for (int i = 0; i < response.length(); i++) {
                                 try {
                                     JSONObject jsonObject = response.getJSONObject(i);
-                                    Log.d("api",jsonObject.getString("taikhoan"));
-                                    Log.d("api",jsonObject.getString("taikhoan"));
+
                                     if(editusers.getText().toString().equals(jsonObject.getString("taikhoan"))&&
                                             editpassword.getText().toString().equals(jsonObject.getString("matkhau"))){
                                         Intent intent = new Intent(Login.this , MainActivity.class);
                                         intent.putExtra(STATUS,jsonObject.getInt("status"));
-                                        startActivity(intent);}
+                                        Log.d("api",jsonObject.getInt("status")+"");
+                                        startActivity(intent);
+                                        CheckConnection.ShowToast_Short(getApplicationContext(),"Đăng nhập thành công");
+                                    }else {
+                                        CheckConnection.ShowToast_Short(getApplicationContext(),"Kiểm tra lại tài khoản mật khẩu");
+                                    }
                                 } catch (JSONException e) {
+
                                     e.printStackTrace();
                                 }
                             }
