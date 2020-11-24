@@ -19,23 +19,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical">
-<!--        <FrameLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            >-->
-<!--            <TextView-->
-<!--                android:textSize="20sp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Giỏ hàng đang trống \n Mời quý khách mua hàng"/>-->
-<!--        </FrameLayout>-->
-        <ListView
-            android:id="@+id/listviewgiohang"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
+            android:layout_height="match_parent"
+            >
+            <ListView
+                android:id="@+id/listviewgiohang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ListView>
+            <TextView
+                android:id="@+id/thongbaotronggiohang"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giỏ hàng đang trống \n Mời quý khách mua hàng"/>
+        </FrameLayout>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -69,24 +70,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+
         <LinearLayout
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="40dp">
+            android:layout_marginBottom="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/buttontieptucmua"
-                android:text="Tiếp tục mua"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/buttonok"
+                android:text="Tiếp tục mua" />
+
             <Button
                 android:id="@+id/buttonthanhtoan"
-                android:text="Thanh toán"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/buttonhuy"
+                android:text="Thanh toán" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

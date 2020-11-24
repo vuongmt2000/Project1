@@ -22,6 +22,7 @@ import android.widget.ToggleButton;
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.Retrofit.APIultil;
 import com.example.cuahangfood.Retrofit.DataClient;
+import com.example.cuahangfood.ultil.CheckConnection;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +37,7 @@ import retrofit2.Response;
 
 
 
-public class addProduct extends AppCompatActivity {
+public class AddProduct extends AppCompatActivity {
     EditText editnameProduct,editvalueProduct,editintroProduct;
     ImageView imageView;
     ToggleButton chonloaiSP;
@@ -91,7 +92,7 @@ public class addProduct extends AppCompatActivity {
                  final String giasanpham = editvalueProduct.getText().toString();
                  final String gioithieusanpham = editintroProduct.getText().toString();
                  final String idsanpham = String.valueOf(idsanpham1);
-                if(tensanpham.length()>0 && giasanpham.length() > 0){
+                if(tensanpham.length()>0 && giasanpham.length() > 0 && gioithieusanpham.length() > 0 && realPath.length()> 0){
                     File file = new File(realPath);
                     String file_path = file.getAbsolutePath();
                     String[] mangtenfile = file_path.split("\\.");
@@ -118,7 +119,7 @@ public class addProduct extends AppCompatActivity {
                                             String result = response.body();
                                             if(result.equals("Success")){
                                                 Log.d("dataclient","123");
-                                                Toast.makeText(addProduct.this,"thêm thành công",Toast.LENGTH_SHORT);
+                                                CheckConnection.ShowToast_Short(getApplicationContext(),"thêm thành công");
                                                 finish();
                                             }
                                         }
@@ -138,7 +139,8 @@ public class addProduct extends AppCompatActivity {
                         }
                     });
                 }else {
-                    Toast.makeText(addProduct.this,"nhập đầy đủ thông tin",Toast.LENGTH_LONG);}
+                    CheckConnection.ShowToast_Short(getApplicationContext(),"Cần nhập đủ thông tin ");
+                    }
 
             }
 

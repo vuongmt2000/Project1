@@ -94,6 +94,8 @@ public class GioHangAdapter extends BaseAdapter {
             viewCart.buttontru.setVisibility(View.VISIBLE);
         }
         final ViewCart finalViewCart = viewCart;
+
+        final ViewCart finalViewCart1 = viewCart;
         viewCart.buttoncong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,8 +109,42 @@ public class GioHangAdapter extends BaseAdapter {
                 DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
                 finalViewCart.txtGiasp.setText(decimalFormat.format(giamoinhat)+" Đ");
                 GioHang.tongtien();
+                if(slmoinhat > 98 ){
+                    finalViewCart.buttoncong.setVisibility(View.INVISIBLE);
+                    finalViewCart.buttontru.setVisibility(View.VISIBLE);
+                    finalViewCart.buttonsoluong.setText(String.valueOf(slmoinhat));
+                }else {
+                    finalViewCart.buttoncong.setVisibility(View.VISIBLE);
+                    finalViewCart.buttontru.setVisibility(View.VISIBLE);
+                    finalViewCart.buttonsoluong.setText(String.valueOf(slmoinhat));
+                }
 
             }
+        });
+        viewCart.buttontru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int slmoinhat = Integer.parseInt(finalViewCart.buttonsoluong.getText().toString())-1;
+                int slhientai = MainActivity.manggiohang.get(i).getSoluongSP();
+                long giahientai = MainActivity.manggiohang.get(i).getGiasP();
+                MainActivity.manggiohang.get(i).setSoluongSP(slmoinhat);
+                long giamoinhat = (giahientai*slmoinhat)/slhientai;
+                MainActivity.manggiohang.get(i).setGiasP(giamoinhat);
+                DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+                finalViewCart.txtGiasp.setText(decimalFormat.format(giamoinhat)+" Đ");
+                GioHang.tongtien();
+                if(slmoinhat <1 ){
+                    finalViewCart.buttoncong.setVisibility(View.VISIBLE);
+                    finalViewCart.buttontru.setVisibility(View.INVISIBLE);
+                    finalViewCart.buttonsoluong.setText(String.valueOf(slmoinhat));
+                }else {
+                    finalViewCart.buttoncong.setVisibility(View.VISIBLE);
+                    finalViewCart.buttontru.setVisibility(View.VISIBLE);
+                    finalViewCart.buttonsoluong.setText(String.valueOf(slmoinhat));
+                }
+
+            }
+
         });
         return view;
     }

@@ -3,18 +3,15 @@ package com.example.cuahangfood.activity;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,13 +38,11 @@ import com.example.cuahangfood.ultil.CheckConnection;
 import com.example.cuahangfood.ultil.Server;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Request;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -150,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         if(CheckConnection.haveNetworkConnection(getApplicationContext())){
-                            Intent intent = new Intent(MainActivity.this, addProduct.class);
+                            Intent intent = new Intent(MainActivity.this, AddProduct.class);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");

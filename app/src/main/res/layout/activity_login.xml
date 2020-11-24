@@ -7,7 +7,8 @@
     android:layout_gravity="center"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context=".activity.Login">
+    tools:context=".activity.Login"
+    >
 
 
     <TextView
@@ -20,18 +21,24 @@
         android:textSize="30dp" />
 
     <EditText
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/editusername"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/spinner"
         android:hint="Nhập tài khoản"
 
         />
 
     <EditText
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/spinner"
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:hint="Nhập mật khẩu"
         android:inputType="textPassword" />

@@ -56,14 +56,13 @@ public class Login extends AppCompatActivity {
                                     JSONObject jsonObject = response.getJSONObject(i);
 
                                     if(editusers.getText().toString().equals(jsonObject.getString("taikhoan"))&&
-                                            editpassword.getText().toString().equals(jsonObject.getString("matkhau"))){
+                                            editpassword.getText().toString().equals(jsonObject.getString("matkhau"))) {
                                         Intent intent = new Intent(Login.this , MainActivity.class);
                                         intent.putExtra(STATUS,jsonObject.getInt("status"));
                                         Log.d("api",jsonObject.getInt("status")+"");
                                         startActivity(intent);
-                                        CheckConnection.ShowToast_Short(getApplicationContext(),"Đăng nhập thành công");
                                     }else {
-                                        CheckConnection.ShowToast_Short(getApplicationContext(),"Kiểm tra lại tài khoản mật khẩu");
+//                                        CheckConnection.ShowToast_Short(getApplicationContext(),"Kiểm tra lại tài khoản mật khẩu");
                                     }
                                 } catch (JSONException e) {
 
