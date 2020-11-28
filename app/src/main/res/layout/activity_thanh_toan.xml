@@ -2,8 +2,121 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ThanhToan">
+    tools:context=".activity.ThanhToan"
+    android:weightSum="11">
 
+   <androidx.appcompat.widget.Toolbar
+       android:id="@+id/toolbarthongtinbanhang"
+       app:titleTextColor="#29732f"
+       app:title="Thông tin đơn hàng"
+       android:gravity="center"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"/>
+    <LinearLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+      android:layout_weight="6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thông tin người mua hàng"/>
+        <EditText
+            android:layout_marginTop="5dp"
+            android:hint="Tên Người Mua"
+            android:background="@drawable/spinner"
+            android:id="@+id/edittexttennguoimua"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <EditText
+            android:layout_marginTop="5dp"
+            android:hint="Email"
+            android:background="@drawable/spinner"
+            android:id="@+id/edittextemail"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <EditText
+            android:inputType="phone"
+            android:layout_marginTop="5dp"
+            android:hint="Số điện thoại"
+            android:background="@drawable/spinner"
+            android:id="@+id/edittextdienthoainguoidung"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <EditText
+            android:layout_marginTop="5dp"
+            android:hint="Địa chỉ nhận hàng"
+            android:background="@drawable/spinner"
+            android:id="@+id/edittextdiachi"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đơn Hàng"/>
+
+        <ListView
+            android:id="@+id/listviewgiohangthanhtoan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:text="Phương thức thanh toán"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/madonhang"
+            android:layout_marginTop="10dp"
+            android:text="Mã đơn hàng : "
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Người mua hàng sẽ phải thanh toán 30% giá trị đơn  hàng. \nQuý khách có thể chuyển
+tiền qua số tài khoản ngân hàng\nViettinback:102868961442 \nHoặc MoMo : 0369823126 \nSẽ có nhân viên của công ty sẽ
+liên hệ cho bạn sớm nhất trong vòng 24h.Mong thắc mắc xin liên hệ hotline : 0369823126" />
+        <CheckBox
+            android:id="@+id/checkboxdongy"
+            android:text="Đồng ý điều khoản"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/buttontrolai"
+                android:background="@drawable/buttonhuy"
+                android:text="Trở về"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/buttonxacnhan"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonok"
+                android:text="Xác nhận " />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.cuahangfood.activity;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,7 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -264,7 +267,7 @@ public class DienThoaiActivity extends AppCompatActivity {
             super.handleMessage(msg);
         }
     }
-    // toa luong chay ngam
+    // tao luong chay ngam
     public class TheardData extends Thread{
         @Override
         public void run() {
@@ -280,4 +283,17 @@ public class DienThoaiActivity extends AppCompatActivity {
         }
     }
 
+    // sự kiện chạm vào vị trí bất kỳ để dimiss kyboard
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (v instanceof EditText) {
+                InputMethodManager im
+                        = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                im.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,16 +16,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
+
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.adapter.GioHangAdapter;
 import com.example.cuahangfood.model.GioHangSP;
+import com.example.cuahangfood.ultil.CheckConnection;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GioHang extends AppCompatActivity {
     GioHangAdapter gioHangAdapter;
-    Toolbar toolbar;
+    Toolbar toolbargiohang;
     TextView thongbaogiohang;
     ListView listViewgiohang;
     static TextView textViewtongtien;
@@ -38,7 +41,7 @@ public class GioHang extends AppCompatActivity {
         anhxa();
         tongtien();
         catchOnItemListview();
-        //ActionToolbar();
+        ActionToolbar();
         buttonmuatiep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,22 +53,26 @@ public class GioHang extends AppCompatActivity {
         buttonthanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),ThanhToan.class);
-                startActivity(intent);
+                if(MainActivity.manggiohang.size() > 0){
+                    Intent intent = new Intent(getApplicationContext(),ThanhToan.class);
+                    startActivity(intent);
+                }else {
+                    CheckConnection.ShowToast_Short(getApplicationContext(),"Cần mua hàng :3");
+                }
             }
         });
     }
 
-//    private void ActionToolbar() {
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                finish();
-//            }
-//        });
-//    }
+    private void ActionToolbar() {
+        setSupportActionBar(toolbargiohang);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbargiohang.setNavigationOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
+    }
 
     // khi chọn giữ vào một hàng hóa để xóa sản phẩm
     private void catchOnItemListview() {
@@ -74,11 +81,11 @@ public class GioHang extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int position, long l) {
                 Log.d("hhh111",MainActivity.manggiohang.size()+"");
                 AlertDialog.Builder builder= new AlertDialog.Builder(GioHang.this);
-                builder.setTitle("Xác nhận xóa sản phẩm");
-                builder.setMessage("bạn có muốn xóa sản phẩm ?");
+                builder.setMessage("Bạn có muốn xóa sản phẩm ?");
                 builder.setPositiveButton("có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        Log.d("1111222","123");
                         if(MainActivity.manggiohang.size() <= 0 ){
                             thongbaogiohang.setVisibility(View.VISIBLE);
                         }else {
@@ -89,10 +96,20 @@ public class GioHang extends AppCompatActivity {
                                 thongbaogiohang.setVisibility(View.VISIBLE);
                             }else {
                                 thongbaogiohang.setVisibility(View.INVISIBLE);
+                                gioHangAdapter.notifyDataSetChanged();
+                                tongtien();
                             }
                         }
                     }
                 });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        gioHangAdapter.notifyDataSetChanged();
+                        tongtien();
+                    }
+                });
+                builder.show();
                 return true;
             }
         });
@@ -111,6 +128,7 @@ public class GioHang extends AppCompatActivity {
 
 
     private void anhxa() {
+        toolbargiohang = findViewById(R.id.toolbargiohang);
         thongbaogiohang = findViewById(R.id.thongbaotronggiohang);
         listViewgiohang = findViewById(R.id.listviewgiohang);
         textViewtongtien = findViewById(R.id.textviewgiatientong);

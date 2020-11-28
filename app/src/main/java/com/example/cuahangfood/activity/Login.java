@@ -2,10 +2,14 @@ package com.example.cuahangfood.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,6 +42,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.btn_login);
         Anhxa();
+        CloseKeyboard();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +86,32 @@ public class Login extends AppCompatActivity {
     }
 });
 
+    }
+
+    private void CloseKeyboard() {
+//        View view = this.getCurrentFocus();
+//        Log.d("vuong123",view+"");
+//        view.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                InputMethodManager imm= (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//                imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+//                return true;
+//            }
+//        });
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (v instanceof EditText) {
+                InputMethodManager im
+                        = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                im.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
     }
     private void Anhxa(){
         editusers = (EditText) findViewById(R.id.editusername);
