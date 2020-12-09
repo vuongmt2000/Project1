@@ -42,7 +42,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.btn_login);
         Anhxa();
-        CloseKeyboard();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,19 +85,6 @@ public class Login extends AppCompatActivity {
     }
 });
 
-    }
-
-    private void CloseKeyboard() {
-//        View view = this.getCurrentFocus();
-//        Log.d("vuong123",view+"");
-//        view.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                InputMethodManager imm= (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-//                imm.hideSoftInputFromWindow(view.getWindowToken(),0);
-//                return true;
-//            }
-//        });
     }
 
     @Override

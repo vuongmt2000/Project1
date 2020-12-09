@@ -105,7 +105,10 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),GioHang.class);
                     startActivity(intent);
                 }
-            //case R.id.dondathang:
+                if(MainActivity.status == 2){
+                    Intent intent = new Intent(getApplicationContext(),DonHang.class);
+                    startActivity(intent);
+                }
         }
         return super.onOptionsItemSelected(item);
     }
