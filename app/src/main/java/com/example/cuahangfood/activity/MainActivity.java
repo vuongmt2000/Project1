@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
         mangsanphammoi = new ArrayList<>();
         sanphamAdapter = new SanphamAdapter( getApplicationContext(),mangsanphammoi);
         recyclerViewmanhinhchinh.setHasFixedSize(true);
-        recyclerViewmanhinhchinh.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+        recyclerViewmanhinhchinh.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         recyclerViewmanhinhchinh.setAdapter(sanphamAdapter);
         if(manggiohang != null){
 

@@ -2,25 +2,21 @@ package com.example.cuahangfood.model;
 
 public class Oder {
     private int madonhang;
-    private int masanpham;
-    private String tensanpham;
-    private int soluongsanpham;
-    private int giasanpham;
     private int sodienthoai;
     private String email;
     private String diachinguoimua;
     private String tennguoimua;
+    private int status;
+    public Oder (){
 
-    public Oder(int madonhang, int masanpham, String tensanpham, int soluongsanpham, int giasanpham, int sodienthoai, String email, String diachinguoimua, String tennguoimua) {
+    }
+    public Oder(int madonhang, int sodienthoai, String email, String diachinguoimua, String tennguoimua, int status) {
         this.madonhang = madonhang;
-        this.masanpham = masanpham;
-        this.tensanpham = tensanpham;
-        this.soluongsanpham = soluongsanpham;
-        this.giasanpham = giasanpham;
         this.sodienthoai = sodienthoai;
         this.email = email;
         this.diachinguoimua = diachinguoimua;
         this.tennguoimua = tennguoimua;
+        this.status = status;
     }
 
     public int getMadonhang() {
@@ -29,38 +25,6 @@ public class Oder {
 
     public void setMadonhang(int madonhang) {
         this.madonhang = madonhang;
-    }
-
-    public int getMasanpham() {
-        return masanpham;
-    }
-
-    public void setMasanpham(int masanpham) {
-        this.masanpham = masanpham;
-    }
-
-    public String getTensanpham() {
-        return tensanpham;
-    }
-
-    public void setTensanpham(String tensanpham) {
-        this.tensanpham = tensanpham;
-    }
-
-    public int getSoluongsanpham() {
-        return soluongsanpham;
-    }
-
-    public void setSoluongsanpham(int soluongsanpham) {
-        this.soluongsanpham = soluongsanpham;
-    }
-
-    public int getGiasanpham() {
-        return giasanpham;
-    }
-
-    public void setGiasanpham(int giasanpham) {
-        this.giasanpham = giasanpham;
     }
 
     public int getSodienthoai() {
@@ -93,5 +57,13 @@ public class Oder {
 
     public void setTennguoimua(String tennguoimua) {
         this.tennguoimua = tennguoimua;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

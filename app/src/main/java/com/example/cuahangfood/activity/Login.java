@@ -46,10 +46,12 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                 JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.duongdanLogin, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+
                         if (response != null) {
                             int id = 0;
                             String taikhoan = "";
@@ -66,6 +68,7 @@ public class Login extends AppCompatActivity {
                                         Log.d("api",jsonObject.getInt("status")+"");
                                         startActivity(intent);
                                     }else {
+//                                        Log.d("123111","1212");
 //                                        CheckConnection.ShowToast_Short(getApplicationContext(),"Kiểm tra lại tài khoản mật khẩu");
                                     }
                                 } catch (JSONException e) {

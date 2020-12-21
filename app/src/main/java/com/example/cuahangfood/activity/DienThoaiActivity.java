@@ -61,6 +61,8 @@ public class DienThoaiActivity extends AppCompatActivity {
     boolean isLoading = false;
     boolean limitData = false;
     mHandler mHandler;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,8 +86,8 @@ public class DienThoaiActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         if(MainActivity.status == 1){
             getMenuInflater().inflate(R.menu.menu,menu);
-        }else{
-            getMenuInflater().inflate(R.menu.order,menu);
+        }else if(MainActivity.status == 2) {
+            getMenuInflater().inflate(R.menu.menu,menu);
         }
 
         return true;
@@ -95,10 +97,13 @@ public class DienThoaiActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menugiohanag:
-                if(MainActivity.status ==1){
+                if(MainActivity.status == 1){
                     Intent intent = new Intent(getApplicationContext(),GioHang.class);
                     startActivity(intent);
                 }
+                else  {
+                    Intent intent = new Intent(getApplicationContext(),DonHang.class);
+                    startActivity(intent);                }
             case R.id.dondathang:
         }
         return super.onOptionsItemSelected(item);
@@ -223,14 +228,17 @@ public class DienThoaiActivity extends AppCompatActivity {
 
     // them nut back trn toolbar
     private void ActionToolbar() {
+
         setSupportActionBar(tbdt);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
        tbdt.setNavigationOnClickListener(new View.OnClickListener(){
+
            @Override
            public void onClick(View view){
                finish();
            }
        });
+
 
     }
     // lay id dien thoai tu man hinh mainAtivity chuyen qua
