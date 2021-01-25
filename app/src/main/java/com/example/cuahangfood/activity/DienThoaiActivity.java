@@ -138,7 +138,7 @@ public class DienThoaiActivity extends AppCompatActivity {
         dienthoaiAdapter.filterList(arrSearch);
     }
 
-    //load them du lieu
+
     private void LoadMoreData() {
         listViewDt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

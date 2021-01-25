@@ -89,7 +89,11 @@ public class GioHangAdapter extends BaseAdapter {
         }else if (soluong <=1){
             viewCart.buttoncong.setVisibility(View.VISIBLE);
             viewCart.buttontru.setVisibility(View.INVISIBLE);
-        }else {
+        }else if(MainActivity.status == 2){
+            viewCart.buttoncong.setVisibility(View.INVISIBLE);
+            viewCart.buttontru.setVisibility(View.INVISIBLE);
+        }
+        else {
             viewCart.buttoncong.setVisibility(View.VISIBLE);
             viewCart.buttontru.setVisibility(View.VISIBLE);
         }

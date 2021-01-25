@@ -1,22 +1,22 @@
 package com.example.cuahangfood.model;
 
 public class Oder {
-    private int madonhang;
-    private int sodienthoai;
-    private String email;
-    private String diachinguoimua;
-    private String tennguoimua;
-    private int status;
-    public Oder (){
+    public int madonhang;
+    public Integer sodienthoai;
+    public String email;
+    public String diachinguoimua;
+    public String tennguoimua;
+    public int status;
 
-    }
-    public Oder(int madonhang, int sodienthoai, String email, String diachinguoimua, String tennguoimua, int status) {
+
+    public Oder(int madonhang, Integer sodienthoai, String email, String diachinguoimua, String tennguoimua, int status) {
         this.madonhang = madonhang;
         this.sodienthoai = sodienthoai;
         this.email = email;
         this.diachinguoimua = diachinguoimua;
         this.tennguoimua = tennguoimua;
         this.status = status;
+
     }
 
     public int getMadonhang() {
@@ -27,11 +27,11 @@ public class Oder {
         this.madonhang = madonhang;
     }
 
-    public int getSodienthoai() {
+    public Integer getSodienthoai() {
         return sodienthoai;
     }
 
-    public void setSodienthoai(int sodienthoai) {
+    public void setSodienthoai(Integer sodienthoai) {
         this.sodienthoai = sodienthoai;
     }
 

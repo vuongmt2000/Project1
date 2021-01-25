@@ -3,6 +3,7 @@ package com.example.cuahangfood.activity;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -11,7 +12,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -190,5 +193,18 @@ public class AddProduct extends AppCompatActivity {
         }
         cursor.close();
         return path;
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (v instanceof EditText) {
+                InputMethodManager im
+                        = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                im.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }

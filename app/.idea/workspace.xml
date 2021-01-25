@@ -6,7 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="donhangchitiet10" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264d4635-5954-459f-a74c-59ceeaadab28" name="Default Changelist" comment="" />
@@ -28,6 +29,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1lyVsD9Gsd0cevSrmk3Ox41wqBv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,6 +46,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.-1788470143">
+      <recent name="com.example.cuahangfood.activity" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -113,25 +126,41 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="155" key="GridCell.Tab.0.bottom" timestamp="1608571947692">
+    <state x="402" y="9" key="#app" timestamp="1609739009614">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="155" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608571947692" />
-    <state width="1323" height="155" key="GridCell.Tab.0.center" timestamp="1608571947691">
+    <state x="402" y="9" key="#app/0.0.1366.728@0.0.1366.728" timestamp="1609739009614" />
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1609609818988">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="155" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608571947691" />
-    <state width="1323" height="155" key="GridCell.Tab.0.left" timestamp="1608571947691">
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1609609818988" />
+    <state x="465" y="223" width="438" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609597713616">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="155" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608571947690" />
-    <state width="1323" height="155" key="GridCell.Tab.0.right" timestamp="1608571947691">
+    <state x="465" y="223" width="438" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1609597713616" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1611480227066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="155" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608571947691" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1608569605345">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1611480227066" />
+    <state width="1323" height="10" key="GridCell.Tab.0.bottom" timestamp="1609560594212">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1608569605345" />
+    <state width="1323" height="10" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609560594212" />
+    <state width="1323" height="10" key="GridCell.Tab.0.center" timestamp="1609560594212">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="10" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609560594212" />
+    <state width="1323" height="10" key="GridCell.Tab.0.left" timestamp="1609560594211">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="10" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609560594211" />
+    <state width="1323" height="10" key="GridCell.Tab.0.right" timestamp="1609560594212">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="10" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609560594212" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1611480055328">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1611480055328" />
   </component>
 </project>

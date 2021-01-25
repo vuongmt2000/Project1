@@ -73,7 +73,7 @@ public class ThanhToanAdapter extends BaseAdapter {
             viewCart =(ViewCart)  view.getTag();
         }
         GioHangSP gioHang = (GioHangSP)getItem(i);
-        Log.d("111112",gioHang.getSoluongSP()+"");
+        Log.d("111112",gioHang.getHinhanhSP());
         viewCart.txtTensp.setMaxLines(2);
         viewCart.txtTensp.setEllipsize(TextUtils.TruncateAt.END);
         viewCart.txtTensp.setText(gioHang.getTensp());

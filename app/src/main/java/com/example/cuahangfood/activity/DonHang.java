@@ -1,25 +1,24 @@
 package com.example.cuahangfood.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.cuahangfood.R;
 import com.example.cuahangfood.adapter.DonhangAdminAdapter;
 import com.example.cuahangfood.model.Oder;
-import com.example.cuahangfood.model.Product;
-import com.example.cuahangfood.ultil.CheckConnection;
 import com.example.cuahangfood.ultil.Server;
 
 import org.json.JSONArray;
@@ -29,6 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class DonHang extends AppCompatActivity {
+    Toolbar toolbardonhang;
     ListView listViewdonhang;
     ArrayList<Oder> mangdonhang;
     DonhangAdminAdapter donhangAdminAdapter;
@@ -38,11 +38,39 @@ public class DonHang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_don_hang);
-        getData();
         anhxa();
+        getData();
+        actionToolbar();
+        onClickItem();
+    }
+
+    private void onClickItem() {
+        listViewdonhang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), DonHangChiTiet.class);
+                intent.putExtra("madonhang", mangdonhang.get(i).getMadonhang());
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void actionToolbar() {
+        setSupportActionBar(toolbardonhang);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbardonhang.setNavigationOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
+
     }
 
     private void anhxa() {
+        toolbardonhang = findViewById(R.id.toolbardonhang);
         listViewdonhang = findViewById(R.id.listviewdonhang);
         mangdonhang = new ArrayList<>();
         donhangAdminAdapter = new DonhangAdminAdapter(getApplicationContext(),mangdonhang);
@@ -68,6 +96,7 @@ public class DonHang extends AppCompatActivity {
                         try {
                             Log.d("vao",response.toString());
                             JSONObject jsonObject = response.getJSONObject(i);
+                            Log.d("vuong12311",jsonObject.getInt("id")+"");
                             madonhang  = jsonObject.getInt("id");
                             tennguoimua = jsonObject.getString("custom");
                             phone = jsonObject.getInt("phone");

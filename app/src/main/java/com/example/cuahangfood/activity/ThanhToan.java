@@ -110,6 +110,7 @@ public class ThanhToan extends AppCompatActivity {
                                                 jsonObject.put("tensanpham",MainActivity.manggiohang.get(i).getTensp());
                                                 jsonObject.put("giasanpham",MainActivity.manggiohang.get(i).getGiasP());
                                                 jsonObject.put("soluongsanpham",MainActivity.manggiohang.get(i).getSoluongSP());
+                                                jsonObject.put("hinhanhsanpham",MainActivity.manggiohang.get(i).getHinhanhSP());
 
                                             } catch (JSONException e) {
                                                 e.printStackTrace();

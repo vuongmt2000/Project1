@@ -149,6 +149,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+                    case 4:
+                        if(CheckConnection.haveNetworkConnection(getApplicationContext())) {
+                            Intent intent = new Intent(MainActivity.this, Login.class);
+                            startActivity(intent);
+                        }
+                        break;
                     case 5:
                         if(CheckConnection.haveNetworkConnection(getApplicationContext())){
                             Intent intent = new Intent(MainActivity.this, AddProduct.class);
@@ -222,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     mangloaisp.add(3, new Product_Type(0,"Liên hệ","https://cdn.pixabay.com/photo/2016/11/01/03/05/contact-1787332_960_720.png"));
-                    mangloaisp.add(4,new Product_Type(0,"Thông tin" , "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSUwxF7tSeL3mVdFZYJAXWXBF4yrd5EOTfuHA&usqp=CAU"));
+                    mangloaisp.add(4,new Product_Type(0,"Đăng Xuất" , "https://png.pngtree.com/png-vector/20191018/ourlarge/pngtree-logout-icon-for-your-design-websites-and-projects-png-image_1829571.jpg"));
 
                     if(MainActivity.status ==2) {
                         mangloaisp.add(5, new Product_Type(0, "Thêm sản phẩm mới", "https://kenh14cdn.com/A3YmnWqkHeph7OwGyu6TwbX57tgTw/Image/2012/03/120320kpbieutuong06_8f682.jpg"));

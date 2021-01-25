@@ -6,18 +6,20 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".activity.DonHang">
- <TextView
-     android:textColor="#3256a8"
-     android:textSize="20sp"
-     android:layout_marginTop="20dp"
-     android:gravity="center"
-     android:text="Quản Đơn Hàng"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbardonhang"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#38f5ec"
+        android:gravity="center"
+        app:title="Đơn Hàng"
+        app:titleTextColor="#f22222">
+    </androidx.appcompat.widget.Toolbar>
 
-        <ListView
-            android:id="@+id/listviewdonhang"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
+    <ListView
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/listviewdonhang"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
 </LinearLayout>

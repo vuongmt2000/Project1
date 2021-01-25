@@ -47,32 +47,31 @@ public class DonhangAdminAdapter extends BaseAdapter {
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder1 = null;
         if (view == null){
-            viewHolder = new DonhangAdminAdapter.ViewHolder();
+            Log.d("vuong123","donhangAdapter");
+            viewHolder1 = new DonhangAdminAdapter.ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.dongdonhang,null);
-            viewHolder.madonhang =  (TextView) view.findViewById(R.id.textviewmadonhang);
-            viewHolder.tennguoimua =  (TextView) view.findViewById(R.id.tennguoimuahang);
-            viewHolder.sodienthoai = (TextView) view.findViewById(R.id.sodienthoainguoimua);
-            viewHolder.diachinguoimua = (TextView) view.findViewById(R.id.diachinguoimua);
-            viewHolder.email = (TextView) view.findViewById(R.id.emailnguoimua);
-            view.setTag(viewHolder);
+            viewHolder1.madonhang =  (TextView) view.findViewById(R.id.textviewmadonhang);
+            viewHolder1.tennguoimua =  (TextView) view.findViewById(R.id.tennguoimuahang);
+            viewHolder1.sodienthoai = (TextView) view.findViewById(R.id.sodienthoainguoimua);
+            viewHolder1.diachinguoimua = (TextView) view.findViewById(R.id.diachinguoimua);
+            viewHolder1.email = (TextView) view.findViewById(R.id.emailnguoimua);
+            view.setTag(viewHolder1);
 
         }else {
-            viewHolder = (DonhangAdminAdapter.ViewHolder) view.getTag();
+            viewHolder1 = (DonhangAdminAdapter.ViewHolder) view.getTag();
         }
         Oder oder = (Oder) getItem(i);
-        Log.d("hellll","12211");
-        viewHolder.madonhang.setText(oder.getMadonhang());
-        viewHolder.tennguoimua.setMaxLines(2);
-        viewHolder.tennguoimua.setEllipsize(TextUtils.TruncateAt.END);
-        viewHolder.tennguoimua.setText(oder.getTennguoimua());
-        viewHolder.sodienthoai.setText(oder.getSodienthoai());
-        viewHolder.diachinguoimua.setMaxLines(2);
-        viewHolder.diachinguoimua.setEllipsize(TextUtils.TruncateAt.END);
-        viewHolder.diachinguoimua.setText(oder.getDiachinguoimua());
-        viewHolder.email.setText(oder.getEmail());
+        Log.d("hellll",oder.getSodienthoai()+"");
+        viewHolder1.madonhang.setText(oder.getMadonhang()+"");
+        viewHolder1.tennguoimua.setText(oder.getTennguoimua());
+        viewHolder1.sodienthoai.setText("0"+oder.getSodienthoai());
+        viewHolder1.diachinguoimua.setMaxLines(2);
+        viewHolder1.diachinguoimua.setEllipsize(TextUtils.TruncateAt.END);
+        viewHolder1.diachinguoimua.setText(oder.getDiachinguoimua());
+        viewHolder1.email.setText(oder.getEmail());
 
         return view;
     }

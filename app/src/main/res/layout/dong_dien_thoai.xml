@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:text="ten dien thoai"
                     android:textStyle="bold"
                     android:id="@+id/textviewtendt"
                     android:layout_margin="5dp"

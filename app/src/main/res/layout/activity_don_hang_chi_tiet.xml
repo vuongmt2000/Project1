@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DonHangChiTiet"
+    android:weightSum="20">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbardonhangchitiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Chi tiết đơn hàng"
+        />
+    <ListView
+        android:layout_weight="5"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/listviewdonhangchitiet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+    <LinearLayout
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textviewgiathanhtiendonhang"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="Tổng Tiền : "
+            android:textColor="#f5000c"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:text="0 Đ"
+            android:textColor="#f5000c"
+            android:textSize="25dp"
+            android:id="@+id/textviewdonhangtongtien"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

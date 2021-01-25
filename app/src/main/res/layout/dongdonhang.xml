@@ -3,30 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     android:gravity="center"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textviewmadonhang"
-        android:text="Mã đơn hàng :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:layout_height="120dp">
 
     <TextView
+        android:id="@+id/textviewmadonhang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã đơn hàng :"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:textSize="20sp"
         android:id="@+id/tennguoimuahang"
         android:text="Tên : "
+        android:textColor="#34eb52"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textSize="20sp"
+        android:textColor="#eb4034"
         android:id="@+id/sodienthoainguoimua"
         android:text="Số điện thoại "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textSize="20sp"
         android:id="@+id/diachinguoimua"
         android:text="Địa chỉ "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textSize="20sp"
         android:id="@+id/emailnguoimua"
         android:text="Email "
         android:layout_width="wrap_content"
